@@ -21,6 +21,6 @@ if defined?(::ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
   ::ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.prepend(SaferRailsConsole::Patches::Sandbox::TransactionReadOnly::ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
 
   # Ensure transaction is read-only if it was began before this patch was loaded
-  connection = ::ActiveRecord::Base.connection
-  connection.execute 'SET TRANSACTION READ ONLY' if connection.open_transactions > 0
+  # connection = ::ActiveRecord::Base.connection
+  # connection.execute 'SET TRANSACTION READ ONLY' if connection.open_transactions > 0
 end
